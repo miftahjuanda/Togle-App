@@ -58,16 +58,40 @@
 		B08693702636F20B00961BDA /* Togle App */ = {
 			isa = PBXGroup;
 			children = (
-				B08693712636F20B00961BDA /* AppDelegate.swift */,
-				B08693732636F20B00961BDA /* SceneDelegate.swift */,
-				B08693752636F20B00961BDA /* ViewController.swift */,
-				B08693772636F20B00961BDA /* Main.storyboard */,
+				B086938A2636F23F00961BDA /* Delegate */,
+				B086938C2636F25D00961BDA /* Controller */,
+				B086938B2636F25200961BDA /* Storyboard */,
 				B086937D2636F20C00961BDA /* Assets.xcassets */,
 				B086937F2636F20C00961BDA /* LaunchScreen.storyboard */,
 				B08693822636F20C00961BDA /* Info.plist */,
 				B086937A2636F20B00961BDA /* Togle_App.xcdatamodeld */,
 			);
 			path = "Togle App";
+			sourceTree = "<group>";
+		};
+		B086938A2636F23F00961BDA /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B08693712636F20B00961BDA /* AppDelegate.swift */,
+				B08693732636F20B00961BDA /* SceneDelegate.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		B086938B2636F25200961BDA /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B08693772636F20B00961BDA /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B086938C2636F25D00961BDA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B08693752636F20B00961BDA /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "infinite.learning.Togle-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,7 +343,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "infinite.learning.Togle-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
