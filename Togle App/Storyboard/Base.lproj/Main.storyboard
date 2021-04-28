@@ -15,9 +15,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="v9M-lP-uta">
+                                <rect key="frame" x="16" y="114" width="358" height="32"/>
+                                <segments>
+                                    <segment title="Tasks"/>
+                                    <segment title="Uncompleted"/>
+                                    <segment title="Completed"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="9IN-YE-b67"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eUG-Ni-uiB">
+                                <rect key="frame" x="0.0" y="149" width="390" height="661"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eUG-Ni-uiB" secondAttribute="trailing" id="1we-Mk-TWe"/>
+                            <constraint firstItem="eUG-Ni-uiB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Equ-lw-pIt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v9M-lP-uta" secondAttribute="trailing" constant="16" id="F28-Wt-UVw"/>
+                            <constraint firstItem="eUG-Ni-uiB" firstAttribute="top" secondItem="v9M-lP-uta" secondAttribute="bottom" constant="4" id="NOT-9v-8c3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eUG-Ni-uiB" secondAttribute="bottom" id="gqV-1z-aaU"/>
+                            <constraint firstItem="v9M-lP-uta" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="h7c-a7-jlI"/>
+                            <constraint firstItem="v9M-lP-uta" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="izA-3y-bif"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemTableViews" destination="eUG-Ni-uiB" id="H4G-wi-lHY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
