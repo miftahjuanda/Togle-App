@@ -26,10 +26,19 @@ class ViewController: UIViewController {
         itemTableViews.delegate = self
         setTable()
         fogleData = db?.fetchDataByStatus(status: .todo) ?? []
-        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {
+            success, error in
+            
+                if success {
+                    
+                } else if let error = error {
+                    print("Error : \(error)")
+                }
+            }
+        )
         itemTableViews.reloadData()
     }
-    
+        
     func setTable(){
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         itemTableViews.register(nib, forCellReuseIdentifier: "itemDataTable")
