@@ -49,6 +49,7 @@ class AddTaskViewController: UIViewController {
         
         let fogleModel : FogleModel = FogleModel(title: title, status: status, date: date, time: time, note: note)
         db?.addFogleData(fogleModel: fogleModel)
+        setReminder(fogle: fogleModel)
         self.navigationController?.popToRootViewController(animated: true)
         mainScreenProtocol?.reloadData()
     }
@@ -70,7 +71,6 @@ class AddTaskViewController: UIViewController {
         dateTextField.inputAccessoryView = toolbar
         
         dateTextField.inputView = datePicker
-        
         datePicker.datePickerMode = .dateAndTime
         datePicker.locale = .current
         datePicker.preferredDatePickerStyle = .wheels
@@ -116,6 +116,24 @@ class AddTaskViewController: UIViewController {
             focusTimes.append(startTime)
             startTime = startTime + 5
         }
+    }
+    
+    func setReminder(fogle : FogleModel){
+        let content = UNMutableNotificationContent()
+        content.title = fogle.title
+        content.sound = .default
+        content.body = fogle.note
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: datePicker.date.addingTimeInterval(5)), repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "\(fogle.id)", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: {
+            error in
+            
+            if error != nil {
+                print("Some error : \(error)")
+            }
+        })
     }
     
 }
