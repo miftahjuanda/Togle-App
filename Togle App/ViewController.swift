@@ -39,11 +39,15 @@ class ViewController: UIViewController {
         let b = DataItem(image: "eagle", task: "Contoh", date: "21/04/2021 08:00 AM", time: "01:20", result: "Result: 🥚")
         let c = DataItem(image: "eagle", task: "Contoh", date: "21/04/2021 08:00 AM", time: "01:20", result: "Result: 🥚")
         let d = DataItem(image: "eagle", task: "Contoh", date: "21/04/2021 08:00 AM", time: "01:20", result: "Result: 🥚")
+        let e = DataItem(image: "eagle", task: "Contoh", date: "21/04/2021 08:00 AM", time: "01:20", result: "Result: 🥚")
+        let f = DataItem(image: "eagle", task: "Contoh", date: "21/04/2021 08:00 AM", time: "01:20", result: "Result: 🥚")
         
         dataItemTable.append(a)
         dataItemTable.append(b)
         dataItemTable.append(c)
         dataItemTable.append(d)
+        dataItemTable.append(e)
+        dataItemTable.append(f)
     }
 
 
