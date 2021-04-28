@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9439D4632639BD1B00339E7E /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439D4622639BD1B00339E7E /* AddTaskViewController.swift */; };
+		9439D4672639BD5B00339E7E /* MainScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439D4662639BD5B00339E7E /* MainScreenProtocol.swift */; };
 		9450EEC82638FA280028A178 /* FogleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450EEC72638FA280028A178 /* FogleStatus.swift */; };
 		9450EECD2638FB050028A178 /* FogleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450EECC2638FB050028A178 /* FogleModel.swift */; };
 		94849F302638562500F2F1E5 /* FogleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94849F2F2638562500F2F1E5 /* FogleDB.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9439D4622639BD1B00339E7E /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		9439D4662639BD5B00339E7E /* MainScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenProtocol.swift; sourceTree = "<group>"; };
 		9450EEC72638FA280028A178 /* FogleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleStatus.swift; sourceTree = "<group>"; };
 		9450EECC2638FB050028A178 /* FogleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleModel.swift; sourceTree = "<group>"; };
 		94849F2F2638562500F2F1E5 /* FogleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleDB.swift; sourceTree = "<group>"; };
@@ -45,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9439D4652639BD4F00339E7E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9439D4662639BD5B00339E7E /* MainScreenProtocol.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		9450EEC62638FA130028A178 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +100,7 @@
 		B08693702636F20B00961BDA /* Togle App */ = {
 			isa = PBXGroup;
 			children = (
+				9439D4652639BD4F00339E7E /* Protocol */,
 				9450EECB2638FAFA0028A178 /* Model */,
 				9450EEC62638FA130028A178 /* Enum */,
 				94849F2E2638561000F2F1E5 /* Persistance */,
@@ -123,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				B08693752636F20B00961BDA /* ViewController.swift */,
+				9439D4622639BD1B00339E7E /* AddTaskViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -198,10 +212,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B08693762636F20B00961BDA /* ViewController.swift in Sources */,
+				9439D4632639BD1B00339E7E /* AddTaskViewController.swift in Sources */,
 				94849F302638562500F2F1E5 /* FogleDB.swift in Sources */,
 				9450EECD2638FB050028A178 /* FogleModel.swift in Sources */,
 				B086937C2636F20B00961BDA /* Togle_App.xcdatamodeld in Sources */,
 				9450EEC82638FA280028A178 /* FogleStatus.swift in Sources */,
+				9439D4672639BD5B00339E7E /* MainScreenProtocol.swift in Sources */,
 				B08693722636F20B00961BDA /* AppDelegate.swift in Sources */,
 				B08693742636F20B00961BDA /* SceneDelegate.swift in Sources */,
 			);
