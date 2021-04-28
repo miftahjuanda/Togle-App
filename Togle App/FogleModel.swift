@@ -12,14 +12,16 @@ class  FogleModel{
     var id : String
     var title : String
     var status : String
-    var date : Date
+    var date : String
     var time : String
+    var note : String
     
-    init(title : String, status : String, date : Date, time : String) {
+    init(title : String, status : String, date : String, time : String, note : String) {
         self.id = UUID().uuidString
         self.title = title
         self.status = status
         self.date = date
         self.time = time
+        self.note = note
     }
 }

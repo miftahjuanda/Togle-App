@@ -22,7 +22,7 @@ class FogleDB {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Fogle")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Focus")
         
         fetchRequest.predicate = NSPredicate(format: "status==%@", status.rawValue)
         do {
@@ -42,7 +42,7 @@ class FogleDB {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "Fogle", in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: "Focus", in: managedContext)!
         
         let fogle = NSManagedObject(entity: entity, insertInto: managedContext)
         
@@ -51,6 +51,7 @@ class FogleDB {
         fogle.setValue(fogleModel.title, forKey: "title")
         fogle.setValue(fogleModel.status, forKey: "status")
         fogle.setValue(fogleModel.time, forKey: "time")
+        fogle.setValue(fogleModel.note, forKey: "note")
         
         do {
             try managedContext.save()
@@ -67,7 +68,7 @@ class FogleDB {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Fogle")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Focus")
         
         fetchRequest.predicate = NSPredicate(format: "id==%@", fogleModel.id)
         do {
@@ -79,6 +80,7 @@ class FogleDB {
                 objectUpdate.setValue(fogleModel.date, forKey: "date")
                 objectUpdate.setValue(fogleModel.title, forKey: "title")
                 objectUpdate.setValue(fogleModel.status, forKey: "status")
+                objectUpdate.setValue(fogleModel.note, forKey: "note")
                 objectUpdate.setValue(fogleModel.time, forKey: "time")
                 
                 do {
