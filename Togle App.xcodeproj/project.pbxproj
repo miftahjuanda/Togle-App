@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9450EEC82638FA280028A178 /* FogleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450EEC72638FA280028A178 /* FogleStatus.swift */; };
+		9450EECD2638FB050028A178 /* FogleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450EECC2638FB050028A178 /* FogleModel.swift */; };
+		94849F302638562500F2F1E5 /* FogleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94849F2F2638562500F2F1E5 /* FogleDB.swift */; };
 		B08693722636F20B00961BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08693712636F20B00961BDA /* AppDelegate.swift */; };
 		B08693742636F20B00961BDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08693732636F20B00961BDA /* SceneDelegate.swift */; };
 		B08693762636F20B00961BDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08693752636F20B00961BDA /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9450EEC72638FA280028A178 /* FogleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleStatus.swift; sourceTree = "<group>"; };
+		9450EECC2638FB050028A178 /* FogleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleModel.swift; sourceTree = "<group>"; };
+		94849F2F2638562500F2F1E5 /* FogleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleDB.swift; sourceTree = "<group>"; };
 		B086936E2636F20B00961BDA /* Togle App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Togle App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08693712636F20B00961BDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B08693732636F20B00961BDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9450EEC62638FA130028A178 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				9450EEC72638FA280028A178 /* FogleStatus.swift */,
+			);
+			name = Enum;
+			sourceTree = "<group>";
+		};
+		9450EECB2638FAFA0028A178 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9450EECC2638FB050028A178 /* FogleModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		94849F2E2638561000F2F1E5 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				94849F2F2638562500F2F1E5 /* FogleDB.swift */,
+			);
+			name = Persistance;
+			sourceTree = "<group>";
+		};
 		B08693652636F20B00961BDA = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +88,9 @@
 		B08693702636F20B00961BDA /* Togle App */ = {
 			isa = PBXGroup;
 			children = (
+				9450EECB2638FAFA0028A178 /* Model */,
+				9450EEC62638FA130028A178 /* Enum */,
+				94849F2E2638561000F2F1E5 /* Persistance */,
 				B086938A2636F23F00961BDA /* Delegate */,
 				B086938C2636F25D00961BDA /* Controller */,
 				B086938B2636F25200961BDA /* Storyboard */,
@@ -165,7 +198,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B08693762636F20B00961BDA /* ViewController.swift in Sources */,
+				94849F302638562500F2F1E5 /* FogleDB.swift in Sources */,
+				9450EECD2638FB050028A178 /* FogleModel.swift in Sources */,
 				B086937C2636F20B00961BDA /* Togle_App.xcdatamodeld in Sources */,
+				9450EEC82638FA280028A178 /* FogleStatus.swift in Sources */,
 				B08693722636F20B00961BDA /* AppDelegate.swift in Sources */,
 				B08693742636F20B00961BDA /* SceneDelegate.swift in Sources */,
 			);
