@@ -46,4 +46,11 @@ class BadgesViewController: UIViewController {
         eb_image2.image = UIImage(named: "eagle_breeder_2")
         eb_image3.image = UIImage(named: "eagle_breeder_3")
     }
+    
+    
+    @IBAction func backNavigation(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
 }
