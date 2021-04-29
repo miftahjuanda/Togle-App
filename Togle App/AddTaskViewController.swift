@@ -10,7 +10,6 @@ import UIKit
 class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var taskNameTextField: UITextField!
-    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var taskTimeTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var notesTextView: UITextView!
@@ -32,8 +31,8 @@ class AddTaskViewController: UIViewController {
         db = FogleDB()
         createDatePicker()
         createFocusTimePicker()
+        
     }
-    
     
     @IBAction func actionBackButton(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
@@ -52,12 +51,7 @@ class AddTaskViewController: UIViewController {
         setReminder(fogle: fogleModel)
         self.navigationController?.popToRootViewController(animated: true)
         mainScreenProtocol?.reloadData()
-    }
-    
-    @IBAction func actionChooseIcon(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
+    }    
     
     func createDatePicker(){
         let toolbar = UIToolbar()
@@ -126,7 +120,7 @@ class AddTaskViewController: UIViewController {
         content.sound = .default
         content.body = fogle.note
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: datePicker.date.addingTimeInterval(5)), repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: datePicker.date.addingTimeInterval(10)), repeats: false)
         
         let request = UNNotificationRequest(identifier: "\(fogle.id)", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: {

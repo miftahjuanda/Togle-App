@@ -17,6 +17,7 @@ class FogleModel {
     var targetTime : Int64
     var note : String
     var result : String
+    var highlight : Bool = false
     
     init(title : String, status : String, date : String, currentTime : Int64, targetTime : Int64, note : String, result : String) {
         self.id = UUID().uuidString

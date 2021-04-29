@@ -13,9 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var itemTableViews: UITableView!
     @IBOutlet weak var fogleSegmentationControl: UISegmentedControl!
     
+    @IBOutlet weak var pointLabel: UIButton!
     var fogleData : [NSManagedObject] = []
     let statusSegmnetation : [FogleStatus] = [.todo,.uncompleted,.completed]
     private var db : FogleDB?
+    var badgesData : NSManagedObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,7 @@ class ViewController: UIViewController {
         itemTableViews.delegate = self
         itemTableViews.backgroundColor = UIColor.systemGray5
         setTable()
-        fogleData = db?.fetchDataByStatus(status: .todo) ?? []
+        setExtendTable()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {
             success, error in
             
@@ -36,12 +38,18 @@ class ViewController: UIViewController {
                 }
             }
         )
-        itemTableViews.reloadData()
+        self.reloadData()
     }
         
     func setTable(){
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         itemTableViews.register(nib, forCellReuseIdentifier: "itemDataTable")
+        itemTableViews.separatorStyle = UITableViewCell.SeparatorStyle.none
+    }
+    
+    func setExtendTable(){
+        let nib = UINib(nibName: "ExtendItemTableViewCell", bundle: nil)
+        itemTableViews.register(nib, forCellReuseIdentifier: "extendItemDataTable")
         itemTableViews.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
 
@@ -70,6 +78,16 @@ class ViewController: UIViewController {
         vc.mainScreenProtocol = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func actionBadgesButton(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "BadgesViewController") as! BadgesViewController
+        
+        vc.badges = createInstanceBadges(data: badgesData!)
+        //        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
+    
 }
 
 
@@ -87,25 +105,31 @@ extension ViewController: UITableViewDataSource{
         maskLayer.backgroundColor = UIColor.white.cgColor
         cell.layer.mask = maskLayer
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemData = fogleData[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataTable", for: indexPath) as! ItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "extendItemDataTable", for: indexPath) as! ExtendItemTableViewCell
         cell.backgroundColor = UIColor.white
         cell.updateUI(fogle: itemData)
         
         return cell
+
+//        if true {
+//        } else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataTable", for: indexPath) as! ItemTableViewCell
+//            cell.backgroundColor = UIColor.white
+//            cell.updateUI(fogle: itemData)
+//
+//            return cell
+//        }
+        
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let status : String = fogleData[indexPath.row].value(forKey: "status") as? String ?? ""
-        
-        if status != FogleStatus.todo.rawValue {
-            return tableView.frame.height/8
-        }
-        return tableView.frame.height/9.5
+        return tableView.frame.height/4
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -123,9 +147,12 @@ extension ViewController: UITableViewDelegate {
         
         let fogleModel = FogleModel(id: id, title: title, status: status, date: date, currentTime : currentTime, targetTime: targetTime, note: note, result: result)
         
+        
+        let badgesModel = createInstanceBadges(data: badgesData!)
         let vc = storyboard?.instantiateViewController(identifier: "TimeScreenViewController") as! TimeScreenViewController
         vc.mainScreenProtocol = self
         vc.fogleModel = fogleModel
+        vc.badgesModel = badgesModel
         
         present(vc, animated: true, completion: nil)
 //        self.navigationController?.pushViewController(vc, animated: true)
@@ -146,13 +173,22 @@ extension ViewController: UITableViewDelegate {
 extension ViewController : MainScreenProtocol {
     
     func reloadData() {
+        
         fogleData = db?.fetchDataByStatus(status: statusSegmnetation[fogleSegmentationControl.selectedSegmentIndex]) ?? []
+        badgesData = db?.fetchBadgesData()
+        
+        let point = (badgesData?.value(forKey: "point") as? Int64) ?? 0
+        pointLabel.setTitle("🏆 \(point)", for: .normal)
         itemTableViews.reloadData()
     }
     
     func changeStatusTask(fogleModel: FogleModel) {
         db?.editFogleData(fogleModel: fogleModel)
         reloadData()
+    }
+    
+    func updateBadgesData(badgesModel: BadgesModel) {
+        db?.editBadgesData(badgesModel: badgesModel)
     }
     
     

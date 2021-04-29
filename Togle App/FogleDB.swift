@@ -34,6 +34,90 @@ class FogleDB {
         return fogleData
     }
     
+    func fetchBadgesData() -> NSManagedObject {
+        var badges : NSManagedObject = NSManagedObject()
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return badges
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Badges")
+        
+        do {
+            let data = try managedContext.fetch(fetchRequest)
+            
+            if !data.isEmpty {
+                badges = data.first!
+            } else {
+                DispatchQueue.main.async {
+                    self.addBadgesData()
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch : \(error)")
+        }
+        
+        return badges
+    }
+    
+    func addBadgesData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Badges", in: managedContext)!
+        
+        let fogle = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        fogle.setValue(UUID().uuidString, forKey: "id")
+        fogle.setValue(0, forKey: "point")
+        fogle.setValue(0, forKey: "total_focus_time")
+        fogle.setValue(0, forKey: "total_complete_task")
+        do {
+            try managedContext.save()
+            print("save badges")
+        } catch let error as NSError {
+            print("Could not save data \(error)")
+        }
+
+    }
+    
+    func editBadgesData(badgesModel : BadgesModel) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest : NSFetchRequest<NSManagedObject> = NSFetchRequest.init(entityName: "Badges")
+        
+        fetchRequest.predicate = NSPredicate(format: "id==%@", badgesModel.id)
+        do {
+            
+            let data = try managedContext.fetch(fetchRequest)
+            
+            
+            let objectUpdate = data[0]
+            
+            objectUpdate.setValue(badgesModel.point, forKey: "point")
+            objectUpdate.setValue(badgesModel.totalFocusTime, forKey: "total_focus_time")
+            objectUpdate.setValue(badgesModel.totalCompleteTask, forKey: "total_complete_task")
+            do {
+                try managedContext.save()
+            }catch let error as NSError {
+                print(error)
+            }
+            
+            
+        } catch let error as NSError {
+            print("Could not fetch : \(error)")
+        }
+
+    }
     
     func addFogleData(fogleModel : FogleModel){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

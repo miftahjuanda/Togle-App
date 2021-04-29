@@ -10,6 +10,9 @@ import Foundation
 
 enum FogleResult : String {
     case egg = "egg"
-    case eagle = "eagle"
+    case eggHatch = "eggHatch"
+    case eggHatch2 = "eggHatch2"
+    case eggHatch3 = "eggHatch3"
+    case eagle = "eagle-1"
     case none = ""
 }

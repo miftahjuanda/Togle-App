@@ -23,6 +23,9 @@ class BadgesViewController: UIViewController {
     @IBOutlet weak var eb_image2: UIImageView!
     @IBOutlet weak var eb_image3: UIImageView!
     
+    var badges : BadgesModel?
+    var point : Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -33,17 +36,32 @@ class BadgesViewController: UIViewController {
         view1.layer.cornerRadius = 10
         view2.layer.cornerRadius = 10
         view3.layer.cornerRadius = 10
-
-        wh_image1.image = UIImage(named: "workaholic1")
-        wh_image2.image = UIImage(named: "workaholic2")
-        wh_image3.image = UIImage(named: "workaholic3")
-
-        gm_image1.image =  UIImage(named: "gold_miner_1")
-        gm_image2.image =  UIImage(named: "gold_miner_2")
-        gm_image3.image =  UIImage(named: "gold_miner_3")
-
-        eb_image1.image = UIImage(named: "eagle_breeder_1")
-        eb_image2.image = UIImage(named: "eagle_breeder_2")
-        eb_image3.image = UIImage(named: "eagle_breeder_3")
+        
+        let point = badges?.point ?? 0
+        let focusTime = (badges?.totalFocusTime ?? 0) / 60
+        let totalTask = (badges?.totalCompleteTask ?? 0)
+        if point >= 20 {
+            gm_image1.image = UIImage(named: "gold_miner_1")
+        } else if point >= 150 {
+            gm_image2.image = UIImage(named: "gold_miner_2")
+        } else if point >= 500 {
+            gm_image3.image = UIImage(named: "gold_miner_3")
+        }
+        
+        if totalTask >= 5 {
+            wh_image1.image = UIImage(named: "work_holic_1")
+        } else if totalTask >= 25 {
+            wh_image2.image = UIImage(named: "work_holic_2")
+        } else if totalTask >= 50 {
+            wh_image3.image = UIImage(named: "work_holic_3")
+        }
+        
+        if focusTime >= 120 {
+            eb_image1.image = UIImage(named: "eagle_breeder_1")
+        } else if focusTime >= 300 {
+            eb_image1.image = UIImage(named: "eagle_breeder_2")
+        } else if focusTime >= 1200 {
+            eb_image1.image = UIImage(named: "eagle_breeder_3")
+        }
     }
 }
