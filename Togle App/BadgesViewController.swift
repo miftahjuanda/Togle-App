@@ -8,58 +8,42 @@
 import Foundation
 import UIKit
 
-class DatasName {
-    var yourMarga: String?
-    var yourName: [String]?
-    
-    init(yourMarga: String, yourname: [String]) {
-        self.yourMarga = yourMarga
-        self.yourName = yourname
-    }
-}
-
 class BadgesViewController: UIViewController {
     
-    @IBOutlet weak var badgesTable: UITableView!
-    
-    var datasName = [DatasName]()
+    @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var wh_image1: UIImageView!
+    @IBOutlet weak var wh_image2: UIImageView!
+    @IBOutlet weak var wh_image3: UIImageView!
+    @IBOutlet weak var gm_image1: UIImageView!
+    @IBOutlet weak var gm_image2: UIImageView!
+    @IBOutlet weak var gm_image3: UIImageView!
+    @IBOutlet weak var eb_image1: UIImageView!
+    @IBOutlet weak var eb_image2: UIImageView!
+    @IBOutlet weak var eb_image3: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        badgesTable.dataSource = self
-        badgesTable.delegate = self
-        datas()
+        self.view.backgroundColor = .white
+        setImage()
     }
     
-    func datas(){
-        datasName.append(DatasName(yourMarga: "Workaholic", yourname: ["Abdi","Anju","ABC","DEF"]))
-        datasName.append(DatasName(yourMarga: "Gold Miner", yourname: ["Abdi","Anju","ABC","DEF"]))
-        datasName.append(DatasName(yourMarga: "Eagle Breeder", yourname: ["Abdi","Anju","ABC","DEF"]))
-        
-    }
-    
-}
+    func setImage(){
+        view1.layer.cornerRadius = 10
+        view2.layer.cornerRadius = 10
+        view3.layer.cornerRadius = 10
 
-extension BadgesViewController: UITableViewDataSource, UITableViewDelegate{
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return datasName.count
+        wh_image1.image = UIImage(named: "workaholic1")
+        wh_image2.image = UIImage(named: "workaholic2")
+        wh_image3.image = UIImage(named: "workaholic3")
+
+        gm_image1.image =  UIImage(named: "gold_miner_1")
+        gm_image2.image =  UIImage(named: "gold_miner_2")
+        gm_image3.image =  UIImage(named: "gold_miner_3")
+
+        eb_image1.image = UIImage(named: "eagle_breeder_1")
+        eb_image2.image = UIImage(named: "eagle_breeder_2")
+        eb_image3.image = UIImage(named: "eagle_breeder_3")
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datasName[section].yourName?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "badgesItems", for: indexPath)
-        cell.textLabel?.text = datasName[indexPath.section].yourName?[indexPath.row]
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return datasName[section].yourMarga
-    }
-    
 }
