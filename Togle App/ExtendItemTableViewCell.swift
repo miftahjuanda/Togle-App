@@ -18,6 +18,8 @@ class ExtendItemTableViewCell: UITableViewCell {
     @IBOutlet weak var resultImageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
     
+    var startCallback : (()->Void)?
+    
     func updateUI(fogle : NSManagedObject) {
         
         titleTask.text = fogle.value(forKey: "title") as? String
@@ -33,7 +35,7 @@ class ExtendItemTableViewCell: UITableViewCell {
         targetTimeLabel.text = "\(convertToMinutesAndSecond(totalSecond: Int(currentTime))) / \(convertToMinutesAndSecond(totalSecond: Int(targetTime)))"
         
         let status : String = fogle.value(forKey: "status") as? String ?? ""
-        
+        startButton.layer.cornerRadius = 10
         setColorNote(status: status)
         
     }
@@ -54,6 +56,7 @@ class ExtendItemTableViewCell: UITableViewCell {
     
     @IBAction func actionStartButton(_ sender: Any) {
         print("start")
+        startCallback?()
     }
     
 }

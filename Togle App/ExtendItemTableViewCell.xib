@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:03:00 / 00:02:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9t-n5-rtb">
-                        <rect key="frame" x="232" y="42" width="107" height="14"/>
+                        <rect key="frame" x="224" y="42" width="107" height="14"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -49,11 +49,13 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyX-IX-esO">
-                        <rect key="frame" x="91.5" y="105" width="172" height="30"/>
+                        <rect key="frame" x="117.5" y="105" width="120" height="30"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="172" id="U7t-ny-0B1"/>
+                            <constraint firstAttribute="width" constant="120" id="U7t-ny-0B1"/>
                             <constraint firstAttribute="height" constant="30" id="WYc-9w-Sw3"/>
                         </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Start"/>
                         <connections>
                             <action selector="actionStartButton:" destination="HuN-gg-NfC" eventType="touchUpInside" id="QQM-xl-8Lz"/>
@@ -71,7 +73,7 @@
                     <constraint firstAttribute="trailing" secondItem="G90-jo-YCS" secondAttribute="trailing" constant="16" id="4qs-23-VdV"/>
                     <constraint firstItem="G90-jo-YCS" firstAttribute="top" secondItem="a9t-n5-rtb" secondAttribute="bottom" constant="12" id="7my-Bn-DEa"/>
                     <constraint firstItem="Ncq-yj-VGq" firstAttribute="leading" secondItem="sfG-Bp-L95" secondAttribute="trailing" constant="8" id="9ge-QP-16s"/>
-                    <constraint firstAttribute="trailing" secondItem="a9t-n5-rtb" secondAttribute="trailing" constant="16" id="A0a-na-JgG"/>
+                    <constraint firstAttribute="trailing" secondItem="a9t-n5-rtb" secondAttribute="trailing" constant="24" id="A0a-na-JgG"/>
                     <constraint firstItem="sfG-Bp-L95" firstAttribute="top" secondItem="vSj-LU-C68" secondAttribute="top" id="NxG-kS-oQS"/>
                     <constraint firstItem="RSB-EG-ZRy" firstAttribute="top" secondItem="vSj-LU-C68" secondAttribute="top" constant="12" id="PN3-0B-TTm"/>
                     <constraint firstItem="9hP-ye-ipQ" firstAttribute="leading" secondItem="sfG-Bp-L95" secondAttribute="trailing" constant="8" id="PN5-Jm-BbF"/>
@@ -103,6 +105,9 @@
     </objects>
     <resources>
         <image name="eagle-1" width="1395" height="1707"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
