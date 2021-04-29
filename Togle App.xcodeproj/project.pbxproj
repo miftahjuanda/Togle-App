@@ -152,26 +152,10 @@
 		B0E1F6EF2639556C00FAB8AC /* Items Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B0E1F6FC2639B45C00FAB8AC /* bad */,
-				B0E1F6FB2639B45100FAB8AC /* segmentation */,
 				B0E1F6F0263955A000FAB8AC /* ItemTableViewCell.swift */,
 				B0E1F6F1263955A000FAB8AC /* ItemTableViewCell.xib */,
 			);
 			name = "Items Cell";
-			sourceTree = "<group>";
-		};
-		B0E1F6FB2639B45100FAB8AC /* segmentation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = segmentation;
-			sourceTree = "<group>";
-		};
-		B0E1F6FC2639B45C00FAB8AC /* bad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = bad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
