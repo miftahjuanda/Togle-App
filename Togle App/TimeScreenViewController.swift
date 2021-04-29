@@ -28,7 +28,6 @@ class TimeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fogleModel?.targetTime = 20
         titleTaskLabel.text = fogleModel?.title ?? ""
         totalSecond = Int(fogleModel?.targetTime ?? 0)
         almostFinish = totalSecond - Int(Double(totalSecond) * 0.8)
@@ -37,7 +36,6 @@ class TimeScreenViewController: UIViewController {
     }
     
     @IBAction func actionButtonPlayAndStop(_ sender: Any) {
-        print("result : \(fogleModel?.result)")
         if hasPlayed {
             alertButton(title: "Are you sure to stop focus?", message: "You will don’t get your points and poor the eagle :(", completion: {
                 alertController in
