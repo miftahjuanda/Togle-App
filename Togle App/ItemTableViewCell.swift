@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ItemTableViewCell: UITableViewCell {
 
@@ -16,14 +17,17 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var result_label: UILabel!
     @IBOutlet weak var ui_view: UIView!
     
-    var dataItems: FogleModel!
-    
-    func updateUI() {
+    func updateUI(fogle : NSManagedObject) {
 //        image_logo.image = UIImage(named: dataItems.image)
-        task_label.text = dataItems.title
-//        date_label.text = dataItems.date
-        time_label.text = dataItems.time
-//        result_label.text = dataItems.
+        task_label.text = fogle.value(forKey: "title") as? String
+        date_label.text = fogle.value(forKey: "date") as? String
+        time_label.text = fogle.value(forKey: "time") as? String
+        if fogle.value(forKey: "status") as? String != FogleStatus.todo.rawValue {
+            result_label.text = fogle.value(forKey: "status") as? String
+            result_label.isHidden = false
+        } else{
+            result_label.isHidden = true
+        }
         
         ui_view.layer.cornerRadius = 10
     }

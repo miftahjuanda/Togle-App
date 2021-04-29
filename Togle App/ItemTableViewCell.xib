@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,7 +51,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.97392505409999997" green="0.92602401970000003" blue="0.87745052580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2PC-Qn-UyF" firstAttribute="top" secondItem="YSB-6P-9WI" secondAttribute="top" constant="19" id="DeX-kG-HXE"/>
                             <constraint firstItem="2PC-Qn-UyF" firstAttribute="centerY" secondItem="xab-qV-gRd" secondAttribute="centerY" id="Fuz-yM-8II"/>
@@ -78,6 +79,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" systemColor="systemGray5Color"/>
             <connections>
                 <outlet property="date_label" destination="fGX-q5-d0M" id="x4E-w8-kDt"/>
                 <outlet property="image_logo" destination="2PC-Qn-UyF" id="0P5-hk-cVn"/>
@@ -89,4 +91,9 @@
             <point key="canvasLocation" x="163.04347826086959" y="159.04017857142856"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

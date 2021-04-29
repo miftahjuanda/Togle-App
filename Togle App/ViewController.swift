@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         db = FogleDB()
         
         itemTableViews.dataSource = self
@@ -48,19 +47,15 @@ class ViewController: UIViewController {
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
-            //view.backgroundColor = .gray
             fogleData = db?.fetchDataByStatus(status: .todo) ?? []
             
             itemTableViews.reloadData()
         }
         else if sender.selectedSegmentIndex == 1 {
             fogleData = db?.fetchDataByStatus(status: .uncompleted) ?? []
-            //view.backgroundColor = .orange
-            
             itemTableViews.reloadData()
         }
         else if sender.selectedSegmentIndex == 2 {
-            //view.backgroundColor = .brown
             fogleData = db?.fetchDataByStatus(status: .completed) ?? []
             
             itemTableViews.reloadData()
@@ -86,12 +81,11 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemData = fogleData[indexPath.row]
         
-//        let cell = itemTableViews.dequeueReusableCell(withIdentifier: "itemDataTable") as! ItemTableViewCell
-//
-//        cell.dataItems = itemData
-//        cell.updateUI()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemDataTable", for: indexPath) as! ItemTableViewCell
         
-        return UITableViewCell()
+        cell.updateUI(fogle: itemData)
+        
+        return cell
     }
 }
 
@@ -101,7 +95,7 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemTableViews.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
