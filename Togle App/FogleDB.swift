@@ -48,12 +48,14 @@ class FogleDB {
         do {
             let data = try managedContext.fetch(fetchRequest)
             
+            
             if !data.isEmpty {
                 badges = data.first!
             } else {
-                DispatchQueue.main.async {
-                    self.addBadgesData()
-                }
+                self.addBadgesData()
+                
+                let data = try managedContext.fetch(fetchRequest)
+                badges = data.first!
             }
         } catch let error as NSError {
             print("Could not fetch : \(error)")

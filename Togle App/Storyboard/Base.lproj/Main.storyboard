@@ -311,7 +311,7 @@ How about making your own tasks?</string>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="185" id="BdD-Zi-wri"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -369,7 +369,7 @@ How about making your own tasks?</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Fjr-Iy-blQ" userLabel="View Badges 3">
-                                <rect key="frame" x="16" y="407" width="350" height="135"/>
+                                <rect key="frame" x="16" y="407" width="358" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Focus 2 Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEJ-I2-slY">
@@ -379,7 +379,7 @@ How about making your own tasks?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="eagle_breeder_3" image="eagle_breeder_3_disable" translatesAutoresizingMaskIntoConstraints="NO" id="lHF-uM-KAL">
-                                        <rect key="frame" x="247.33333333333331" y="33" width="70" height="65"/>
+                                        <rect key="frame" x="255.33333333333331" y="33" width="70" height="65"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="eagle_breeder_1" image="eagle_breeder_1_disable" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-W1-6JW">
                                         <rect key="frame" x="33.333333333333343" y="33" width="70" height="65"/>
@@ -391,16 +391,16 @@ How about making your own tasks?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="eagle_breeder_2" image="eagle_breeder_2_disable" translatesAutoresizingMaskIntoConstraints="NO" id="vxY-zc-LCt">
-                                        <rect key="frame" x="140" y="33" width="70" height="65"/>
+                                        <rect key="frame" x="140" y="33" width="78" height="65"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Focus 5 Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWg-he-C5F">
-                                        <rect key="frame" x="144" y="98" width="63" height="26.333333333333329"/>
+                                        <rect key="frame" x="144" y="98" width="71" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Focus 20 Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDv-fX-zv7">
-                                        <rect key="frame" x="253" y="98" width="59" height="26.333333333333329"/>
+                                        <rect key="frame" x="261" y="98" width="59" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -437,7 +437,7 @@ How about making your own tasks?</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" id="RV8-1x-zQI" userLabel="View Badges 2">
-                                <rect key="frame" x="16" y="256" width="350" height="135"/>
+                                <rect key="frame" x="16" y="256" width="358" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collect 20 Points" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTm-W1-ipU">
@@ -447,10 +447,10 @@ How about making your own tasks?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="gold_miner_3" image="gold_miner_3_disable" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-0B-dqa">
-                                        <rect key="frame" x="247.33333333333331" y="33" width="70" height="65"/>
+                                        <rect key="frame" x="255.33333333333331" y="33" width="70" height="65"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collect 500 Points" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igY-UB-9IW">
-                                        <rect key="frame" x="253" y="98" width="61" height="26.333333333333329"/>
+                                        <rect key="frame" x="261" y="98" width="61" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -465,10 +465,10 @@ How about making your own tasks?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="gold_miner_2" image="gold_miner_2_disbale" translatesAutoresizingMaskIntoConstraints="NO" id="aOH-uP-udh">
-                                        <rect key="frame" x="140" y="33" width="70" height="65"/>
+                                        <rect key="frame" x="140" y="33" width="78" height="65"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collect 150 Points" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdA-Ko-CAw">
-                                        <rect key="frame" x="144" y="98" width="63" height="26.333333333333329"/>
+                                        <rect key="frame" x="144" y="98" width="71" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

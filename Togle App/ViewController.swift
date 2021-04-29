@@ -236,9 +236,12 @@ extension ViewController : MainScreenProtocol {
             imageEmptyView.isHidden = false
         }
         
-        let point = (badgesData?.value(forKey: "point") as? Int64) ?? 0
-        pointLabel.setTitle("🏆 \(point)", for: .normal)
-        itemTableViews.reloadData()
+        if badgesData != nil {
+         
+            let point = (badgesData?.value(forKey: "point") as? Int64) ?? 0
+            pointLabel.setTitle("🏆 \(point)", for: .normal)
+            itemTableViews.reloadData()
+        }
     }
     
     func editTask(fogleModel: FogleModel) {
