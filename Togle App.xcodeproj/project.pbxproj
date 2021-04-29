@@ -11,6 +11,9 @@
 		9439D4672639BD5B00339E7E /* MainScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9439D4662639BD5B00339E7E /* MainScreenProtocol.swift */; };
 		9450EEC82638FA280028A178 /* FogleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450EEC72638FA280028A178 /* FogleStatus.swift */; };
 		9450EECD2638FB050028A178 /* FogleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450EECC2638FB050028A178 /* FogleModel.swift */; };
+		94761EE3263A5E7B003523F4 /* TimeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94761EE2263A5E7B003523F4 /* TimeScreenViewController.swift */; };
+		94761EE7263A89D5003523F4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94761EE6263A89D5003523F4 /* Utils.swift */; };
+		94761EEE263AAA27003523F4 /* FogleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94761EED263AAA27003523F4 /* FogleResult.swift */; };
 		94849F302638562500F2F1E5 /* FogleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94849F2F2638562500F2F1E5 /* FogleDB.swift */; };
 		B08693722636F20B00961BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08693712636F20B00961BDA /* AppDelegate.swift */; };
 		B08693742636F20B00961BDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08693732636F20B00961BDA /* SceneDelegate.swift */; };
@@ -29,6 +32,9 @@
 		9439D4662639BD5B00339E7E /* MainScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenProtocol.swift; sourceTree = "<group>"; };
 		9450EEC72638FA280028A178 /* FogleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleStatus.swift; sourceTree = "<group>"; };
 		9450EECC2638FB050028A178 /* FogleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleModel.swift; sourceTree = "<group>"; };
+		94761EE2263A5E7B003523F4 /* TimeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScreenViewController.swift; sourceTree = "<group>"; };
+		94761EE6263A89D5003523F4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		94761EED263AAA27003523F4 /* FogleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleResult.swift; sourceTree = "<group>"; };
 		94849F2F2638562500F2F1E5 /* FogleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleDB.swift; sourceTree = "<group>"; };
 		B086936E2636F20B00961BDA /* Togle App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Togle App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08693712636F20B00961BDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				9450EEC72638FA280028A178 /* FogleStatus.swift */,
+				94761EED263AAA27003523F4 /* FogleResult.swift */,
 			);
 			name = Enum;
 			sourceTree = "<group>";
@@ -77,6 +84,14 @@
 				9450EECC2638FB050028A178 /* FogleModel.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		94761EE5263A89CA003523F4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				94761EE6263A89D5003523F4 /* Utils.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		94849F2E2638561000F2F1E5 /* Persistance */ = {
@@ -106,6 +121,7 @@
 		B08693702636F20B00961BDA /* Togle App */ = {
 			isa = PBXGroup;
 			children = (
+				94761EE5263A89CA003523F4 /* Utils */,
 				9439D4652639BD4F00339E7E /* Protocol */,
 				B0E1F6EF2639556C00FAB8AC /* Items Cell */,
 				9450EECB2638FAFA0028A178 /* Model */,
@@ -145,6 +161,7 @@
 				B08693752636F20B00961BDA /* ViewController.swift */,
 				9439D4622639BD1B00339E7E /* AddTaskViewController.swift */,
 				B0E1F6FF2639B9AE00FAB8AC /* BadgesViewController.swift */,
+				94761EE2263A5E7B003523F4 /* TimeScreenViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -233,13 +250,16 @@
 				B0E1F7002639B9AE00FAB8AC /* BadgesViewController.swift in Sources */,
 				B08693762636F20B00961BDA /* ViewController.swift in Sources */,
 				9439D4632639BD1B00339E7E /* AddTaskViewController.swift in Sources */,
+				94761EEE263AAA27003523F4 /* FogleResult.swift in Sources */,
 				94849F302638562500F2F1E5 /* FogleDB.swift in Sources */,
+				94761EE7263A89D5003523F4 /* Utils.swift in Sources */,
 				9450EECD2638FB050028A178 /* FogleModel.swift in Sources */,
 				B086937C2636F20B00961BDA /* Togle_App.xcdatamodeld in Sources */,
 				9450EEC82638FA280028A178 /* FogleStatus.swift in Sources */,
 				9439D4672639BD5B00339E7E /* MainScreenProtocol.swift in Sources */,
 				B08693722636F20B00961BDA /* AppDelegate.swift in Sources */,
 				B08693742636F20B00961BDA /* SceneDelegate.swift in Sources */,
+				94761EE3263A5E7B003523F4 /* TimeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,8 +50,10 @@ class FogleDB {
         fogle.setValue(fogleModel.date, forKey: "date")
         fogle.setValue(fogleModel.title, forKey: "title")
         fogle.setValue(fogleModel.status, forKey: "status")
-        fogle.setValue(fogleModel.time, forKey: "time")
+        fogle.setValue(fogleModel.targetTime, forKey: "target_time")
+        fogle.setValue(fogleModel.currentTime, forKey: "current_time")
         fogle.setValue(fogleModel.note, forKey: "note")
+        fogle.setValue(fogleModel.result, forKey: "result")
         
         do {
             try managedContext.save()
@@ -68,27 +70,29 @@ class FogleDB {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Focus")
-        
+        let fetchRequest : NSFetchRequest<NSManagedObject> = NSFetchRequest.init(entityName: "Focus")
+        print(fogleModel.id)
         fetchRequest.predicate = NSPredicate(format: "id==%@", fogleModel.id)
         do {
             
             let data = try managedContext.fetch(fetchRequest)
+            print("data masok \(data)")
             
-            if !data.isEmpty {
-                let objectUpdate : NSManagedObject = data.first!
+            let objectUpdate = data[0]
+                
                 objectUpdate.setValue(fogleModel.date, forKey: "date")
                 objectUpdate.setValue(fogleModel.title, forKey: "title")
                 objectUpdate.setValue(fogleModel.status, forKey: "status")
                 objectUpdate.setValue(fogleModel.note, forKey: "note")
-                objectUpdate.setValue(fogleModel.time, forKey: "time")
-                
+                objectUpdate.setValue(fogleModel.targetTime, forKey: "target_time")
+                objectUpdate.setValue(fogleModel.currentTime, forKey: "current_time")
+                objectUpdate.setValue(fogleModel.result, forKey: "result")
                 do {
                     try managedContext.save()
                 }catch let error as NSError {
                     print(error)
                 }
-            }
+            
             
         } catch let error as NSError {
             print("Could not fetch : \(error)")

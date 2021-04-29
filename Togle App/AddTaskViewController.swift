@@ -20,7 +20,6 @@ class AddTaskViewController: UIViewController {
     
     var mainScreenProtocol : MainScreenProtocol?
     private var db : FogleDB?
-    var dateTime : String?
     
     var focusTimes : [Int] = []
     var focusTime : Int = 15
@@ -43,11 +42,12 @@ class AddTaskViewController: UIViewController {
     @IBAction func actionDoneButton(_ sender: Any) {
         let title : String = taskNameTextField.text ?? ""
         let status : String = FogleStatus.todo.rawValue
-        let time : String = "\(focusTime)"
-        let date : String = dateTime ?? ""
+        let currentTime : Int64 = 0
+        let targetTime : Int64 = Int64(focusTime * 60)
+        let date : String = formatDate()
         let note : String = notesTextView.text ?? ""
         
-        let fogleModel : FogleModel = FogleModel(title: title, status: status, date: date, time: time, note: note)
+        let fogleModel : FogleModel = FogleModel(title: title, status: status, date: date, currentTime: currentTime, targetTime: targetTime, note: note, result: FogleResult.none.rawValue)
         db?.addFogleData(fogleModel: fogleModel)
         setReminder(fogle: fogleModel)
         self.navigationController?.popToRootViewController(animated: true)
@@ -98,14 +98,16 @@ class AddTaskViewController: UIViewController {
     
     
     @objc func actionDatePickerDone() {
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        
-        dateTime = "\(datePicker.date)"
-        dateTextField.text = "\(formatter.string(from: datePicker.date))"
+        dateTextField.text = "\(formatDate())"
         self.view.endEditing(true)
+    }
+    
+    func formatDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+
+        return formatter.string(from: datePicker.date)
     }
     
     func addDataFocusTime(){

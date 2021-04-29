@@ -254,13 +254,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1F2-RC-CAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727.6923076923076" y="93.838862559241704"/>
+            <point key="canvasLocation" x="1742" y="94"/>
+        </scene>
+        <!--Time Screen View Controller-->
+        <scene sceneID="qLh-1u-ZYv">
+            <objects>
+                <viewController storyboardIdentifier="TimeScreenViewController" modalPresentationStyle="fullScreen" id="KW8-Kn-zeG" customClass="TimeScreenViewController" customModule="Togle_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WZD-Gz-EEO">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQP-ir-dxN">
+                                <rect key="frame" x="16" y="108" width="358" height="28.666666666666657"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGc-Vs-vth">
+                                <rect key="frame" x="178" y="717.66666666666663" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="actionButtonPlayAndStop:" destination="KW8-Kn-zeG" eventType="touchUpInside" id="VQO-sc-bTe"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telorcoklat" translatesAutoresizingMaskIntoConstraints="NO" id="QlN-Uf-Xc1">
+                                <rect key="frame" x="75" y="276.66666666666669" width="240" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="mHt-DW-5tH"/>
+                                    <constraint firstAttribute="width" constant="240" id="rH4-Zg-ugu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auF-sF-oqO">
+                                <rect key="frame" x="102.66666666666669" y="569.66666666666663" width="185" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="BdD-Zi-wri"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrQ-ZK-xsm">
+                                <rect key="frame" x="12" y="68" width="53" height="22"/>
+                                <state key="normal" title="Back" image="chevron.left" catalog="system">
+                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionBackButton:" destination="KW8-Kn-zeG" eventType="touchUpInside" id="LcU-lG-2c6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5vY-pq-cJw"/>
+                        <color key="backgroundColor" red="0.72160065169999998" green="0.78907185790000001" blue="0.72548294069999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="jrQ-ZK-xsm" firstAttribute="top" secondItem="5vY-pq-cJw" secondAttribute="top" constant="24" id="5a2-jA-AfF"/>
+                            <constraint firstItem="mQP-ir-dxN" firstAttribute="leading" secondItem="5vY-pq-cJw" secondAttribute="leading" constant="16" id="Afq-gy-U8g"/>
+                            <constraint firstItem="auF-sF-oqO" firstAttribute="top" secondItem="QlN-Uf-Xc1" secondAttribute="bottom" constant="83" id="Bnw-Jg-EKd"/>
+                            <constraint firstItem="5vY-pq-cJw" firstAttribute="trailing" secondItem="mQP-ir-dxN" secondAttribute="trailing" constant="16" id="Ci0-0e-hH2"/>
+                            <constraint firstItem="5vY-pq-cJw" firstAttribute="trailing" secondItem="QlN-Uf-Xc1" secondAttribute="trailing" constant="75" id="Pah-Wy-PTh"/>
+                            <constraint firstItem="QlN-Uf-Xc1" firstAttribute="leading" secondItem="5vY-pq-cJw" secondAttribute="leading" constant="75" id="Tlu-Yq-ucU"/>
+                            <constraint firstItem="FGc-Vs-vth" firstAttribute="top" secondItem="auF-sF-oqO" secondAttribute="bottom" constant="110" id="Vfk-Ra-xYD"/>
+                            <constraint firstItem="FGc-Vs-vth" firstAttribute="centerX" secondItem="WZD-Gz-EEO" secondAttribute="centerX" id="Y03-kM-PZ7"/>
+                            <constraint firstItem="mQP-ir-dxN" firstAttribute="top" secondItem="5vY-pq-cJw" secondAttribute="top" constant="64" id="cUU-Bk-vPk"/>
+                            <constraint firstItem="QlN-Uf-Xc1" firstAttribute="top" secondItem="mQP-ir-dxN" secondAttribute="bottom" constant="140" id="hnq-JC-rNZ"/>
+                            <constraint firstItem="jrQ-ZK-xsm" firstAttribute="leading" secondItem="5vY-pq-cJw" secondAttribute="leading" constant="12" id="oLC-0w-gSR"/>
+                            <constraint firstItem="auF-sF-oqO" firstAttribute="centerX" secondItem="WZD-Gz-EEO" secondAttribute="centerX" id="qWv-AH-48J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="focusTimeLabel" destination="auF-sF-oqO" id="oTs-r6-Pzj"/>
+                        <outlet property="playAndStopButton" destination="FGc-Vs-vth" id="m6O-P2-ZZC"/>
+                        <outlet property="resultImageView" destination="QlN-Uf-Xc1" id="5nd-du-oUr"/>
+                        <outlet property="titleTaskLabel" destination="mQP-ir-dxN" id="ojC-70-WCx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6wQ-6o-4Sf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3475" y="77"/>
         </scene>
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="swift" catalog="system" width="128" height="106"/>
+        <image name="telorcoklat" width="1820" height="2376"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,11 +344,17 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
