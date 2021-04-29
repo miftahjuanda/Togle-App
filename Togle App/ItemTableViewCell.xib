@@ -17,14 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="355" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:00 / 02:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5p-ri-8ez">
-                        <rect key="frame" x="258.5" y="43" width="72.5" height="13.5"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdC-c0-lvD">
-                        <rect key="frame" x="39" y="12" width="236" height="21"/>
+                        <rect key="frame" x="33" y="12" width="236" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="236" id="gfN-Z0-wmF"/>
                         </constraints>
@@ -33,23 +27,39 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21/04/2021 07:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q53-ie-bh7">
-                        <rect key="frame" x="39" y="41" width="112.5" height="13.5"/>
+                        <rect key="frame" x="33" y="41" width="112.5" height="13.5"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdh-SL-LBZ">
-                        <rect key="frame" x="0.0" y="0.0" width="31" height="99"/>
+                        <rect key="frame" x="0.0" y="0.0" width="25" height="99"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="31" id="AGG-L2-axd"/>
+                            <constraint firstAttribute="width" constant="25" id="AGG-L2-axd"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eagle-1" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-Eb-s4D">
+                        <rect key="frame" x="313" y="12" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="hTZ-j8-CA3"/>
+                            <constraint firstAttribute="width" constant="24" id="zoh-7d-BqU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:00 / 02:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5p-ri-8ez">
+                        <rect key="frame" x="258.5" y="40" width="72.5" height="13.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Cdh-SL-LBZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="AAW-nc-1OI"/>
-                    <constraint firstItem="t5p-ri-8ez" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DWL-RU-4ei"/>
+                    <constraint firstItem="t5p-ri-8ez" firstAttribute="top" secondItem="u9e-Eb-s4D" secondAttribute="bottom" constant="4" id="FEu-0X-slC"/>
+                    <constraint firstAttribute="trailing" secondItem="u9e-Eb-s4D" secondAttribute="trailing" constant="18" id="Mpk-HF-rvk"/>
                     <constraint firstItem="Q53-ie-bh7" firstAttribute="top" secondItem="jdC-c0-lvD" secondAttribute="bottom" constant="8" id="UwH-bf-5Gx"/>
+                    <constraint firstAttribute="trailing" secondItem="t5p-ri-8ez" secondAttribute="trailing" constant="24" id="bQX-9a-Nkf"/>
+                    <constraint firstItem="u9e-Eb-s4D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="gAc-HY-C4G"/>
                     <constraint firstItem="Cdh-SL-LBZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="k1M-Vy-Gyw"/>
                     <constraint firstAttribute="trailing" secondItem="t5p-ri-8ez" secondAttribute="trailing" constant="24" id="pgZ-sg-c7d"/>
                     <constraint firstItem="jdC-c0-lvD" firstAttribute="leading" secondItem="Cdh-SL-LBZ" secondAttribute="trailing" constant="8" id="uBp-9X-F74"/>
@@ -64,6 +74,7 @@
             <connections>
                 <outlet property="colorNote" destination="Cdh-SL-LBZ" id="d5x-CR-SUj"/>
                 <outlet property="date_label" destination="Q53-ie-bh7" id="ToD-Oi-ji6"/>
+                <outlet property="resultImageView" destination="u9e-Eb-s4D" id="BU7-om-Xvi"/>
                 <outlet property="task_label" destination="jdC-c0-lvD" id="kRk-33-73z"/>
                 <outlet property="time_label" destination="t5p-ri-8ez" id="VYp-os-ezu"/>
             </connections>
@@ -71,6 +82,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="eagle-1" width="1395" height="1707"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

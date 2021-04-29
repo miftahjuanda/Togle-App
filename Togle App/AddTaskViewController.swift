@@ -14,7 +14,9 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var uinav: UINavigationItem!
-
+    
+    @IBOutlet weak var maxLengthLabelNote: UILabel!
+    @IBOutlet weak var maxLengthLabelTitle: UILabel!
     let datePicker = UIDatePicker()
     let focusTimePicker = UIPickerView()
     
@@ -33,7 +35,8 @@ class AddTaskViewController: UIViewController {
         if isEdit {
             setData()
         }
-        
+        taskNameTextField.delegate = self
+        notesTextView.delegate = self
         addDataFocusTime()
         focusTimePicker.delegate = self
         focusTimePicker.dataSource = self
@@ -182,7 +185,7 @@ class AddTaskViewController: UIViewController {
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: datePicker.date.addingTimeInterval(10)), repeats: false)
         
-        let request = UNNotificationRequest(identifier: "\(fogle.id)", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "\(fogle.title)", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: {
             error in
             
@@ -192,9 +195,32 @@ class AddTaskViewController: UIViewController {
         })
     }
     
+    
 }
 
-extension AddTaskViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+extension AddTaskViewController : UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        self.maxLengthLabelTitle.text = "\(updatedText.count)/30"
+        
+        return updatedText.count < 30
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        let currentText = textView.text ?? ""
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
+        maxLengthLabelNote.text = "\(updatedText.count)/50"
+        
+        return updatedText.count < 50
+
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }

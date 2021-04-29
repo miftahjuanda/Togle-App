@@ -35,7 +35,7 @@ class ExtendItemTableViewCell: UITableViewCell {
         targetTimeLabel.text = "\(convertToMinutesAndSecond(totalSecond: Int(currentTime))) / \(convertToMinutesAndSecond(totalSecond: Int(targetTime)))"
         
         let status : String = fogle.value(forKey: "status") as? String ?? ""
-        startButton.layer.cornerRadius = 10
+        startButton.layer.cornerRadius = 15
         setColorNote(status: status)
         
     }

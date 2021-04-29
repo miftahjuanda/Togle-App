@@ -10,6 +10,7 @@ import CoreData
 
 class ItemTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var resultImageView: UIImageView!
     @IBOutlet weak var colorNote: UIView!
     @IBOutlet weak var task_label: UILabel!
     @IBOutlet weak var date_label: UILabel!
@@ -27,9 +28,13 @@ class ItemTableViewCell: UITableViewCell {
         
         let status : String = fogle.value(forKey: "status") as? String ?? ""
         
+        let result : String = fogle.value(forKey: "result") as? String ?? ""
+        resultImageView.isHidden = true
+        if status != FogleStatus.todo.rawValue {
+            resultImageView.isHidden = false
+            resultImageView.image = UIImage(named: result)
+        }
         setColorNote(status: status)
-        
-        
         
     }
     

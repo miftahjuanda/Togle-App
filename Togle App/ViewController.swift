@@ -102,7 +102,6 @@ extension ViewController: UITableViewDataSource{
         let itemData = fogleData[indexPath.row]
         let data = listData[indexPath.row]
         
-        print(data.highlight)
         if data.highlight {
             let cell = tableView.dequeueReusableCell(withIdentifier: "extendItemDataTable", for: indexPath) as! ExtendItemTableViewCell
             cell.backgroundColor = UIColor.white
@@ -126,7 +125,9 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let data = listData[indexPath.row]
         
-        if data.highlight {
+        if data.highlight && data.status != FogleStatus.todo.rawValue {
+            return tableView.frame.height/6
+        } else if data.highlight {
             return tableView.frame.height/5
         }
         
@@ -234,7 +235,7 @@ extension ViewController : MainScreenProtocol {
             labelEmptyView.isHidden = false
             imageEmptyView.isHidden = false
         }
-
+        
         let point = (badgesData?.value(forKey: "point") as? Int64) ?? 0
         pointLabel.setTitle("🏆 \(point)", for: .normal)
         itemTableViews.reloadData()

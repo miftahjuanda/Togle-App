@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AudioToolbox
+import AVFoundation
 
 class TimeScreenViewController: UIViewController {
 
@@ -33,6 +35,7 @@ class TimeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fogleModel?.targetTime = 10
         titleTaskLabel.text = fogleModel?.title ?? ""
         totalSecond = Int(fogleModel?.targetTime ?? 0)
         
@@ -49,6 +52,13 @@ class TimeScreenViewController: UIViewController {
         playAndStopButton.addGestureRecognizer(tapImageButton)
         playAndStopButton.isUserInteractionEnabled = true
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("Dissapear")
+        timer?.invalidate()
+        unCompletedAlert()
     }
     
     @objc func actionButtonPlayAndStop() {
@@ -146,7 +156,6 @@ class TimeScreenViewController: UIViewController {
         self.timer?.invalidate()
         self.dismiss(animated: true, completion: nil)
         
-        
         let targetTime = self.fogleModel?.targetTime ?? 0
         self.fogleModel?.currentTime = targetTime - Int64(self.totalSecond)
         
@@ -159,11 +168,13 @@ class TimeScreenViewController: UIViewController {
 
         
         self.fogleModel?.status = FogleStatus.uncompleted.rawValue
-        self.mainScreenProtocol?.changeStatusTask(fogleModel: self.fogleModel!)
         self.mainScreenProtocol?.updateBadgesData(badgesModel: self.badgesModel!)
+        self.mainScreenProtocol?.changeStatusTask(fogleModel: self.fogleModel!)
+        
     }
     
     func congratulationAlert(){
+        hasPlayed = false
         alertButton(title: "TASK COMPLETED", message: "Good job! You are very consistent person 🏆 +\(point+2) points", completion: {
             alertController in
                 let yesAction = UIAlertAction(title: "Collect", style: UIAlertAction.Style.default) {
@@ -215,12 +226,17 @@ class TimeScreenViewController: UIViewController {
             resultImageView.image = UIImage(named: "\(FogleResult.eagle.rawValue)")
         }
         
-        if totalSecond == 0 {
-            congratulationAlert()
-        } else {
-            totalSecond = totalSecond - 1
-            setTimerFocus()
+        if hasPlayed {
+            if totalSecond == 0 {
+                AudioServicesPlaySystemSound(SystemSoundID(1304))
+                congratulationAlert()
+                return
+            } else {
+                totalSecond = totalSecond - 1
+                setTimerFocus()
+            }
         }
+
         
     }
     

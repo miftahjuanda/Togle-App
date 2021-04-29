@@ -125,8 +125,8 @@ How about making your own tasks?</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WrI-UK-LWN">
                                 <rect key="frame" x="0.0" y="129" width="390" height="38"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write your title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n00-IW-g4m">
-                                        <rect key="frame" x="16" y="4" width="358" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write your title" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n00-IW-g4m">
+                                        <rect key="frame" x="16" y="4" width="358" height="29"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -136,8 +136,8 @@ How about making your own tasks?</string>
                                 <constraints>
                                     <constraint firstItem="n00-IW-g4m" firstAttribute="top" secondItem="WrI-UK-LWN" secondAttribute="top" constant="4" id="0Kb-bD-NOW"/>
                                     <constraint firstAttribute="height" constant="38" id="gm2-O4-TSL"/>
+                                    <constraint firstAttribute="trailing" secondItem="n00-IW-g4m" secondAttribute="trailing" constant="16" id="nkv-Pg-fjs"/>
                                     <constraint firstItem="n00-IW-g4m" firstAttribute="leading" secondItem="WrI-UK-LWN" secondAttribute="leading" constant="16" id="nm7-qX-ddj"/>
-                                    <constraint firstAttribute="trailing" secondItem="n00-IW-g4m" secondAttribute="trailing" constant="16" id="ue2-9S-F5X"/>
                                     <constraint firstAttribute="bottom" secondItem="n00-IW-g4m" secondAttribute="bottom" constant="5" id="x2C-uo-8R7"/>
                                 </constraints>
                             </view>
@@ -153,24 +153,23 @@ How about making your own tasks?</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8IO-iK-QQd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IO-iK-QQd">
                                 <rect key="frame" x="0.0" y="207" width="390" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NvZ-WG-QyP">
-                                        <rect key="frame" x="16" y="18" width="32" height="32"/>
+                                        <rect key="frame" x="16" y="17" width="32" height="31.999999999999986"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Focus Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30N-bC-7FN">
-                                        <rect key="frame" x="56" y="23" width="88" height="21"/>
+                                        <rect key="frame" x="56" y="16" width="88" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="15 Minutes" textAlignment="right" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gC2-eJ-Uqc">
-                                        <rect key="frame" x="171" y="16" width="203" height="34"/>
+                                        <rect key="frame" x="171" y="16" width="203" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -195,50 +194,76 @@ How about making your own tasks?</string>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="0j9-sK-uHf"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-uz-Co3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-uz-Co3">
                                 <rect key="frame" x="16" y="343" width="40" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="As0-v9-zvg">
-                                <rect key="frame" x="0.0" y="373" width="390" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="As0-v9-zvg">
+                                <rect key="frame" x="0.0" y="369" width="390" height="106"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-YF-dzP">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-YF-dzP">
                                         <rect key="frame" x="16" y="11" width="358" height="83"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0/50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sb-sF-LW2">
+                                        <rect key="frame" x="342" y="83" width="32" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="106" id="A3n-2P-NRv"/>
+                                    <constraint firstItem="bsf-YF-dzP" firstAttribute="leading" secondItem="As0-v9-zvg" secondAttribute="leading" constant="16" id="Pjs-bO-0ju"/>
+                                    <constraint firstItem="bsf-YF-dzP" firstAttribute="top" secondItem="As0-v9-zvg" secondAttribute="top" constant="11" id="WJa-9a-zXi"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Sb-sF-LW2" secondAttribute="bottom" constant="8" id="WTL-5s-dQH"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Sb-sF-LW2" secondAttribute="trailing" constant="16" id="eZR-80-QpE"/>
+                                    <constraint firstAttribute="bottom" secondItem="bsf-YF-dzP" secondAttribute="bottom" constant="12" id="ee0-HZ-BUD"/>
+                                    <constraint firstAttribute="trailing" secondItem="bsf-YF-dzP" secondAttribute="trailing" constant="16" id="qwe-aA-Vdn"/>
+                                </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyK-P9-wzk">
+                                <rect key="frame" x="355" y="171" width="27" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ANC-vl-RXr"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="WrI-UK-LWN" firstAttribute="trailing" secondItem="ANC-vl-RXr" secondAttribute="trailing" id="8Cr-fw-wEL"/>
+                            <constraint firstItem="aTi-uz-Co3" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" constant="16" id="9CO-Qs-qrP"/>
+                            <constraint firstItem="8IO-iK-QQd" firstAttribute="top" secondItem="RgG-xR-bYr" secondAttribute="bottom" constant="10" id="Bur-df-yTM"/>
                             <constraint firstItem="fE0-bI-vob" firstAttribute="top" secondItem="ANC-vl-RXr" secondAttribute="top" constant="12" id="Eff-HF-BDo"/>
+                            <constraint firstItem="tyK-P9-wzk" firstAttribute="top" secondItem="WrI-UK-LWN" secondAttribute="bottom" constant="4" id="Gpq-zM-aJc"/>
                             <constraint firstItem="WrI-UK-LWN" firstAttribute="top" secondItem="fE0-bI-vob" secondAttribute="bottom" constant="8" id="HUL-pE-3fo"/>
                             <constraint firstItem="RgG-xR-bYr" firstAttribute="top" secondItem="WrI-UK-LWN" secondAttribute="bottom" constant="8" id="Hvm-xk-cA6"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" id="LzR-Rj-za4"/>
                             <constraint firstItem="ANC-vl-RXr" firstAttribute="trailing" secondItem="fE0-bI-vob" secondAttribute="trailing" constant="16" id="QM0-th-gre"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="top" secondItem="aTi-uz-Co3" secondAttribute="bottom" constant="4" id="RTf-H3-0EN"/>
+                            <constraint firstItem="ANC-vl-RXr" firstAttribute="trailing" secondItem="tyK-P9-wzk" secondAttribute="trailing" constant="8" id="VCM-Jl-4YS"/>
                             <constraint firstItem="ANC-vl-RXr" firstAttribute="trailing" secondItem="RgG-xR-bYr" secondAttribute="trailing" constant="16" id="ZQg-MB-iRy"/>
                             <constraint firstItem="RgG-xR-bYr" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" constant="16" id="bP7-t1-1VX"/>
+                            <constraint firstItem="8IO-iK-QQd" firstAttribute="trailing" secondItem="ANC-vl-RXr" secondAttribute="trailing" id="cTB-op-71d"/>
                             <constraint firstItem="fE0-bI-vob" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" constant="16" id="gNq-78-jg7"/>
+                            <constraint firstItem="aTi-uz-Co3" firstAttribute="top" secondItem="8IO-iK-QQd" secondAttribute="bottom" constant="8" id="kKa-sX-FyT"/>
+                            <constraint firstItem="8IO-iK-QQd" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" id="upn-fq-0TN"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="trailing" secondItem="ANC-vl-RXr" secondAttribute="trailing" id="xWZ-DF-p5u"/>
                             <constraint firstItem="WrI-UK-LWN" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" id="yNc-Yd-91R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="AKi-pf-UWl">
-                        <barButtonItem key="leftBarButtonItem" title="Back" image="chevron.left" catalog="system" style="plain" id="o3i-Nt-8Wi">
-                            <connections>
-                                <action selector="actionBackButton:" destination="RkO-1H-l8O" id="E0Z-q6-8HG"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="pvt-5J-sjI">
                             <connections>
                                 <action selector="actionDoneButton:" destination="RkO-1H-l8O" id="OG6-s6-a8K"/>
@@ -248,6 +273,8 @@ How about making your own tasks?</string>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dateTextField" destination="aMt-xf-I9G" id="qpY-oG-gn5"/>
+                        <outlet property="maxLengthLabelNote" destination="2Sb-sF-LW2" id="CPR-dw-msg"/>
+                        <outlet property="maxLengthLabelTitle" destination="tyK-P9-wzk" id="aPp-Rl-AUi"/>
                         <outlet property="notesTextView" destination="bsf-YF-dzP" id="BhI-xQ-5Cn"/>
                         <outlet property="taskNameTextField" destination="n00-IW-g4m" id="N5X-nD-IoO"/>
                         <outlet property="taskTimeTextField" destination="gC2-eJ-Uqc" id="EjQ-AJ-uoF"/>
@@ -256,7 +283,7 @@ How about making your own tasks?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1F2-RC-CAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="94"/>
+            <point key="canvasLocation" x="1741.5384615384614" y="93.838862559241704"/>
         </scene>
         <!--Time Screen View Controller-->
         <scene sceneID="qLh-1u-ZYv">
@@ -333,7 +360,7 @@ How about making your own tasks?</string>
             </objects>
             <point key="canvasLocation" x="3475" y="77"/>
         </scene>
-        <!--Badges View Controller-->
+        <!--Badges-->
         <scene sceneID="Wds-3X-AcU">
             <objects>
                 <viewController storyboardIdentifier="BadgesViewController" id="AfZ-sG-Cg5" customClass="BadgesViewController" customModule="Togle_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -554,6 +581,7 @@ How about making your own tasks?</string>
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Badges" id="yNO-WY-4pG"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
