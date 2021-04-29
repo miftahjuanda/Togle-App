@@ -14,7 +14,8 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var taskTimeTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var notesTextView: UITextView!
-    
+    @IBOutlet weak var uinav: UINavigationItem!
+
     let datePicker = UIDatePicker()
     let focusTimePicker = UIPickerView()
     
@@ -24,8 +25,16 @@ class AddTaskViewController: UIViewController {
     var focusTimes : [Int] = []
     var focusTime : Int = 15
     
+    var isEdit : Bool = false
+    var editData : FogleModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isEdit {
+            setData()
+        }
+        
         addDataFocusTime()
         focusTimePicker.delegate = self
         focusTimePicker.dataSource = self
@@ -34,12 +43,22 @@ class AddTaskViewController: UIViewController {
         createFocusTimePicker()
     }
     
+    func setData(){
+        uinav.title = "Edit Task"
+        taskTimeTextField.text = convertToMinutesAndSecond(totalSecond: Int(editData?.targetTime ?? 0))
+        taskNameTextField.text = editData?.title ?? ""
+        dateTextField.text = editData?.date ?? ""
+        notesTextView.text = editData?.note ?? ""
+        
+    }
+    
     
     @IBAction func actionBackButton(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func actionDoneButton(_ sender: Any) {
+
         let title : String = taskNameTextField.text ?? ""
         let status : String = FogleStatus.todo.rawValue
         let currentTime : Int64 = 0
@@ -47,11 +66,44 @@ class AddTaskViewController: UIViewController {
         let date : String = formatDate()
         let note : String = notesTextView.text ?? ""
         
-        let fogleModel : FogleModel = FogleModel(title: title, status: status, date: date, currentTime: currentTime, targetTime: targetTime, note: note, result: FogleResult.none.rawValue)
-        db?.addFogleData(fogleModel: fogleModel)
-        setReminder(fogle: fogleModel)
-        self.navigationController?.popToRootViewController(animated: true)
-        mainScreenProtocol?.reloadData()
+        let taskTime : String = taskTimeTextField.text ?? ""
+        let dateText : String = dateTextField.text ?? ""
+        if !title.isEmpty && !taskTime.isEmpty && !dateText.isEmpty{
+            if isEdit{
+            
+                let id : String =  editData?.id ?? ""
+                
+                let fogleModel : FogleModel = FogleModel(id: id ,title: title, status: status, date: date, currentTime: currentTime, targetTime: targetTime, note: note, result: FogleResult.none.rawValue)
+                db?.editFogleData(fogleModel: fogleModel)
+                setReminder(fogle: fogleModel)
+                
+                self.navigationController?.popToRootViewController(animated: true)
+                mainScreenProtocol?.reloadData()
+            } else {
+                let fogleModel : FogleModel = FogleModel(title: title, status: status, date: date, currentTime: currentTime, targetTime: targetTime, note: note, result: FogleResult.none.rawValue)
+                db?.addFogleData(fogleModel: fogleModel)
+                setReminder(fogle: fogleModel)
+
+                self.navigationController?.popToRootViewController(animated: true)
+                mainScreenProtocol?.reloadData()
+
+            }
+            
+        }
+        else {
+            print("Masih Kosong")
+            alertButton(title: "Ooppss!", message: "Check for empty input field", completion: {
+                alertController in
+                
+                let cancelAction = UIAlertAction(title: "Okay", style: UIAlertAction.Style.cancel) {
+                    UIAlertAction in
+                    NSLog("Cancel Pressed")
+                }
+                
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: nil)
+            })
+        }
     }
     
     @IBAction func actionChooseIcon(_ sender: Any) {
@@ -65,9 +117,10 @@ class AddTaskViewController: UIViewController {
         toolbar.backgroundColor = UIColor.white
         
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(actionDatePickerDone))
-        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: nil)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelBtn = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(actionDatePickerCancel))
         
-        toolbar.setItems([cancelBtn, doneBtn], animated: true)
+        toolbar.setItems([cancelBtn, spaceButton, doneBtn], animated: true)
         dateTextField.inputAccessoryView = toolbar
         
         dateTextField.inputView = datePicker
@@ -81,8 +134,11 @@ class AddTaskViewController: UIViewController {
         toolbar.sizeToFit()
         toolbar.backgroundColor = UIColor.white
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(actionFocusTimeDone))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelBtn = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(actionDatePickerCancel))
+
         
-        toolbar.setItems([doneBtn], animated: true)
+        toolbar.setItems([cancelBtn, spaceButton, doneBtn], animated: true)
         taskTimeTextField.inputAccessoryView = toolbar
         taskTimeTextField.inputView = focusTimePicker
     }
@@ -93,7 +149,7 @@ class AddTaskViewController: UIViewController {
     }
     
     @objc func actionDatePickerCancel(){
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     
@@ -166,6 +222,4 @@ extension AddTaskViewController : UIPickerViewDataSource, UIPickerViewDelegate {
             focusTime = focusTimes[row]
         }
     }
-    
-    
 }

@@ -9,5 +9,5 @@ import Foundation
 
 protocol MainScreenProtocol {
     func reloadData()
-    func changeStatusTask(fogleModel : FogleModel)
+    func editTask(fogleModel : FogleModel)
 }

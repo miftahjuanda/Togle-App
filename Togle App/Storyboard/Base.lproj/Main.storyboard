@@ -124,9 +124,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8IO-iK-QQd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IO-iK-QQd">
                                 <rect key="frame" x="0.0" y="305" width="390" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NvZ-WG-QyP">
                                         <rect key="frame" x="16" y="18" width="32" height="32"/>
@@ -167,16 +166,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-uz-Co3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-uz-Co3">
                                 <rect key="frame" x="16" y="441" width="40" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="As0-v9-zvg">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="As0-v9-zvg">
                                 <rect key="frame" x="0.0" y="471" width="390" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-YF-dzP">
                                         <rect key="frame" x="16" y="11" width="358" height="83"/>
@@ -221,14 +218,24 @@
                             <constraint firstItem="fE0-bI-vob" firstAttribute="top" secondItem="ANC-vl-RXr" secondAttribute="top" constant="12" id="Eff-HF-BDo"/>
                             <constraint firstItem="WrI-UK-LWN" firstAttribute="top" secondItem="fE0-bI-vob" secondAttribute="bottom" constant="8" id="HUL-pE-3fo"/>
                             <constraint firstItem="ANC-vl-RXr" firstAttribute="trailing" secondItem="WUP-0G-4cj" secondAttribute="trailing" constant="16" id="IR5-jB-KKN"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="top" secondItem="aTi-uz-Co3" secondAttribute="bottom" constant="8" id="M1m-8r-PJT"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="trailing" secondItem="8IO-iK-QQd" secondAttribute="trailing" id="M2E-O4-e14"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="leading" secondItem="Ou1-aX-iYJ" secondAttribute="leading" id="Nkj-Tp-wls"/>
                             <constraint firstItem="ANC-vl-RXr" firstAttribute="trailing" secondItem="fE0-bI-vob" secondAttribute="trailing" constant="16" id="QM0-th-gre"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="top" secondItem="UdZ-Di-hpW" secondAttribute="top" constant="471" id="Wr5-o7-p9r"/>
                             <constraint firstItem="WUP-0G-4cj" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" constant="16" id="ZEg-lY-B6V"/>
                             <constraint firstItem="ANC-vl-RXr" firstAttribute="trailing" secondItem="RgG-xR-bYr" secondAttribute="trailing" constant="16" id="ZQg-MB-iRy"/>
                             <constraint firstItem="RgG-xR-bYr" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" constant="16" id="bP7-t1-1VX"/>
                             <constraint firstItem="fE0-bI-vob" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" constant="16" id="gNq-78-jg7"/>
                             <constraint firstItem="Ou1-aX-iYJ" firstAttribute="trailing" secondItem="ANC-vl-RXr" secondAttribute="trailing" id="hml-pt-ly1"/>
                             <constraint firstItem="Ou1-aX-iYJ" firstAttribute="top" secondItem="WUP-0G-4cj" secondAttribute="bottom" constant="6" id="iUb-Ar-dVr"/>
+                            <constraint firstAttribute="bottom" secondItem="As0-v9-zvg" secondAttribute="bottom" constant="267" id="j6C-1i-vuw"/>
+                            <constraint firstItem="aTi-uz-Co3" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" constant="16" id="mpn-Sg-ZAv"/>
+                            <constraint firstItem="aTi-uz-Co3" firstAttribute="top" secondItem="8IO-iK-QQd" secondAttribute="bottom" constant="8" id="smr-bW-VPn"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="leading" secondItem="8IO-iK-QQd" secondAttribute="leading" id="tKg-Rj-0aH"/>
+                            <constraint firstItem="8IO-iK-QQd" firstAttribute="top" secondItem="RgG-xR-bYr" secondAttribute="bottom" constant="10" id="umF-cK-MEc"/>
                             <constraint firstItem="WrI-UK-LWN" firstAttribute="leading" secondItem="ANC-vl-RXr" secondAttribute="leading" id="yNc-Yd-91R"/>
+                            <constraint firstItem="As0-v9-zvg" firstAttribute="trailing" secondItem="Ou1-aX-iYJ" secondAttribute="trailing" id="yf7-YB-wd1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="AKi-pf-UWl">
@@ -250,11 +257,12 @@
                         <outlet property="notesTextView" destination="bsf-YF-dzP" id="BhI-xQ-5Cn"/>
                         <outlet property="taskNameTextField" destination="n00-IW-g4m" id="N5X-nD-IoO"/>
                         <outlet property="taskTimeTextField" destination="gC2-eJ-Uqc" id="EjQ-AJ-uoF"/>
+                        <outlet property="uinav" destination="AKi-pf-UWl" id="8a0-iF-8fp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1F2-RC-CAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="94"/>
+            <point key="canvasLocation" x="1741.5384615384614" y="93.838862559241704"/>
         </scene>
         <!--Time Screen View Controller-->
         <scene sceneID="qLh-1u-ZYv">
@@ -334,7 +342,7 @@
         <!--Badges View Controller-->
         <scene sceneID="Wds-3X-AcU">
             <objects>
-                <viewController id="AfZ-sG-Cg5" customClass="BadgesViewController" customModule="Togle_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="badgesController" id="AfZ-sG-Cg5" customClass="BadgesViewController" customModule="Togle_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sPH-7x-ukg">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -343,7 +351,11 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                                 <items>
                                     <navigationItem title="Badges" id="RFp-5N-WmW">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" image="chevron.left" catalog="system" id="k24-hJ-ilH"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" image="chevron.left" catalog="system" id="k24-hJ-ilH">
+                                            <connections>
+                                                <action selector="backNavigation:" destination="AfZ-sG-Cg5" id="FxY-P7-Dxf"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="Wk2-fW-jff"/>
                                     </navigationItem>
                                 </items>
@@ -565,7 +577,6 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="eb_image1" destination="3kc-W1-6JW" id="aAZ-XV-xzg"/>
                         <outlet property="eb_image2" destination="vxY-zc-LCt" id="VAu-3i-2wa"/>

@@ -103,7 +103,7 @@ class TimeScreenViewController: UIViewController {
         self.fogleModel?.currentTime = targetTime - Int64(self.totalSecond)
         
         self.fogleModel?.status = FogleStatus.uncompleted.rawValue
-        self.mainScreenProtocol?.changeStatusTask(fogleModel: self.fogleModel!)
+        self.mainScreenProtocol?.editTask(fogleModel: self.fogleModel!)
 
     }
     
@@ -121,7 +121,7 @@ class TimeScreenViewController: UIViewController {
                 self.fogleModel?.currentTime = targetTime
                 self.dismiss(animated: true, completion: nil)
                 self.fogleModel?.status = FogleStatus.completed.rawValue
-                self.mainScreenProtocol?.changeStatusTask(fogleModel: self.fogleModel!)
+                self.mainScreenProtocol?.editTask(fogleModel: self.fogleModel!)
 
             }
                 

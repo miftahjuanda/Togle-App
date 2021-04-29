@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var itemTableViews: UITableView!
     @IBOutlet weak var fogleSegmentationControl: UISegmentedControl!
     
+    var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     var fogleData : [NSManagedObject] = []
     let statusSegmnetation : [FogleStatus] = [.todo,.uncompleted,.completed]
     private var db : FogleDB?
@@ -20,6 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         db = FogleDB()
+
         
         itemTableViews.dataSource = self
         itemTableViews.delegate = self
@@ -43,6 +47,27 @@ class ViewController: UIViewController {
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         itemTableViews.register(nib, forCellReuseIdentifier: "itemDataTable")
         itemTableViews.separatorStyle = UITableViewCell.SeparatorStyle.none
+    }
+    
+    func deleteData(nama: String){
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Focus")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", nama)
+
+        do {
+            let object = try managedObjectContext.fetch(fetchRequest)
+            let objectToDelete = object[0] as! NSManagedObject
+            managedObjectContext.delete(objectToDelete)
+
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print("Error saving after delete an abject: \(error)")
+            }
+
+        }catch{
+            print("Error saving after deletion: \(error)")
+        }
+
     }
 
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
@@ -108,27 +133,64 @@ extension ViewController: UITableViewDelegate {
         return tableView.frame.height/9.5
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    
+        let deleteButton = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath)  in
+            print("test hapus")
+            alertButton(title: "Delete task", message: "Are you sure want to delete this task ?", completion: {
+                alertController in
+
+                let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) {
+                    UIAlertAction in
+
+                    let data = self.fogleData[indexPath.row]
+
+                    self.db?.deleteFogleData(fogle: data)
+                    self.reloadData()
+
+                }
+
+                let cancelAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) {
+                    UIAlertAction in
+                    NSLog("Cancel Pressed")
+                }
+                
+                alertController.addAction(yesAction)
+                alertController.addAction(cancelAction)
+
+                self.present(alertController, animated: true, completion: nil)
+
+            })
+        }
+        
+        let editButton = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath)  in
+            print("test edit")
+            let data = self.fogleData[indexPath.row]
+            let vc = self.storyboard?.instantiateViewController(identifier: "AddTaskViewController") as! AddTaskViewController
+            vc.mainScreenProtocol = self
+            vc.editData = createFogleModel(data: data)
+            vc.isEdit = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    
+        editButton.backgroundColor = UIColor.systemGreen
+        deleteButton.backgroundColor = UIColor.systemRed
+        return [deleteButton, editButton]
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let data = fogleData[indexPath.row]
         
-        let id : String = (data.value(forKey: "id") as? String) ?? ""
-        let title : String = (data.value(forKey: "title") as? String) ?? ""
-        let status : String = (data.value(forKey: "status") as? String) ?? ""
-        let date : String = (data.value(forKey: "date") as? String) ?? ""
-        let targetTime : Int64 = (data.value(forKey: "target_time") as? Int64) ?? 0
-        let currentTime : Int64 = (data.value(forKey: "current_time") as? Int64) ?? 0
-        let note : String = (data.value(forKey: "note") as? String) ?? ""
-        let result : String = (data.value(forKey: "result") as? String) ?? ""
-        
-        let fogleModel = FogleModel(id: id, title: title, status: status, date: date, currentTime : currentTime, targetTime: targetTime, note: note, result: result)
-        
         let vc = storyboard?.instantiateViewController(identifier: "TimeScreenViewController") as! TimeScreenViewController
         vc.mainScreenProtocol = self
-        vc.fogleModel = fogleModel
+        vc.fogleModel = createFogleModel(data: data)
         
         present(vc, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -150,10 +212,8 @@ extension ViewController : MainScreenProtocol {
         itemTableViews.reloadData()
     }
     
-    func changeStatusTask(fogleModel: FogleModel) {
+    func editTask(fogleModel: FogleModel) {
         db?.editFogleData(fogleModel: fogleModel)
         reloadData()
     }
-    
-    
 }
