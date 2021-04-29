@@ -10,7 +10,6 @@ import UIKit
 class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var taskNameTextField: UITextField!
-    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var taskTimeTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var notesTextView: UITextView!
@@ -41,6 +40,7 @@ class AddTaskViewController: UIViewController {
         db = FogleDB()
         createDatePicker()
         createFocusTimePicker()
+        
     }
     
     func setData(){
@@ -51,7 +51,6 @@ class AddTaskViewController: UIViewController {
         notesTextView.text = editData?.note ?? ""
         
     }
-    
     
     @IBAction func actionBackButton(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
@@ -65,7 +64,7 @@ class AddTaskViewController: UIViewController {
         let targetTime : Int64 = Int64(focusTime * 60)
         let date : String = formatDate()
         let note : String = notesTextView.text ?? ""
-        
+
         let taskTime : String = taskTimeTextField.text ?? ""
         let dateText : String = dateTextField.text ?? ""
         if !title.isEmpty && !taskTime.isEmpty && !dateText.isEmpty{
@@ -109,8 +108,7 @@ class AddTaskViewController: UIViewController {
     @IBAction func actionChooseIcon(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    
+        
     func createDatePicker(){
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -182,7 +180,7 @@ class AddTaskViewController: UIViewController {
         content.sound = .default
         content.body = fogle.note
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: datePicker.date.addingTimeInterval(5)), repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: datePicker.date.addingTimeInterval(10)), repeats: false)
         
         let request = UNNotificationRequest(identifier: "\(fogle.id)", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: {

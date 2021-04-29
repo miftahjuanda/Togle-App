@@ -14,7 +14,10 @@
 		94761EE3263A5E7B003523F4 /* TimeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94761EE2263A5E7B003523F4 /* TimeScreenViewController.swift */; };
 		94761EE7263A89D5003523F4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94761EE6263A89D5003523F4 /* Utils.swift */; };
 		94761EEE263AAA27003523F4 /* FogleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94761EED263AAA27003523F4 /* FogleResult.swift */; };
+		94761EF2263AB7AE003523F4 /* ExtendItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94761EF0263AB7AE003523F4 /* ExtendItemTableViewCell.swift */; };
+		94761EF3263AB7AE003523F4 /* ExtendItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94761EF1263AB7AE003523F4 /* ExtendItemTableViewCell.xib */; };
 		94849F302638562500F2F1E5 /* FogleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94849F2F2638562500F2F1E5 /* FogleDB.swift */; };
+		94C9C418263AEDD300A0AA65 /* BadgesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9C417263AEDD300A0AA65 /* BadgesModel.swift */; };
 		B08693722636F20B00961BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08693712636F20B00961BDA /* AppDelegate.swift */; };
 		B08693742636F20B00961BDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08693732636F20B00961BDA /* SceneDelegate.swift */; };
 		B08693762636F20B00961BDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08693752636F20B00961BDA /* ViewController.swift */; };
@@ -35,7 +38,10 @@
 		94761EE2263A5E7B003523F4 /* TimeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScreenViewController.swift; sourceTree = "<group>"; };
 		94761EE6263A89D5003523F4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		94761EED263AAA27003523F4 /* FogleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleResult.swift; sourceTree = "<group>"; };
+		94761EF0263AB7AE003523F4 /* ExtendItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendItemTableViewCell.swift; sourceTree = "<group>"; };
+		94761EF1263AB7AE003523F4 /* ExtendItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtendItemTableViewCell.xib; sourceTree = "<group>"; };
 		94849F2F2638562500F2F1E5 /* FogleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogleDB.swift; sourceTree = "<group>"; };
+		94C9C417263AEDD300A0AA65 /* BadgesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesModel.swift; sourceTree = "<group>"; };
 		B086936E2636F20B00961BDA /* Togle App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Togle App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08693712636F20B00961BDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B08693732636F20B00961BDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				9450EECC2638FB050028A178 /* FogleModel.swift */,
+				94C9C417263AEDD300A0AA65 /* BadgesModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,6 +178,8 @@
 			children = (
 				B0E1F6F0263955A000FAB8AC /* ItemTableViewCell.swift */,
 				B0E1F6F1263955A000FAB8AC /* ItemTableViewCell.xib */,
+				94761EF0263AB7AE003523F4 /* ExtendItemTableViewCell.swift */,
+				94761EF1263AB7AE003523F4 /* ExtendItemTableViewCell.xib */,
 			);
 			name = "Items Cell";
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94761EF3263AB7AE003523F4 /* ExtendItemTableViewCell.xib in Resources */,
 				B08693812636F20C00961BDA /* LaunchScreen.storyboard in Resources */,
 				B086937E2636F20C00961BDA /* Assets.xcassets in Resources */,
 				B0E1F6F3263955A000FAB8AC /* ItemTableViewCell.xib in Resources */,
@@ -249,6 +259,7 @@
 				B0E1F6F2263955A000FAB8AC /* ItemTableViewCell.swift in Sources */,
 				B0E1F7002639B9AE00FAB8AC /* BadgesViewController.swift in Sources */,
 				B08693762636F20B00961BDA /* ViewController.swift in Sources */,
+				94C9C418263AEDD300A0AA65 /* BadgesModel.swift in Sources */,
 				9439D4632639BD1B00339E7E /* AddTaskViewController.swift in Sources */,
 				94761EEE263AAA27003523F4 /* FogleResult.swift in Sources */,
 				94849F302638562500F2F1E5 /* FogleDB.swift in Sources */,
@@ -260,6 +271,7 @@
 				B08693722636F20B00961BDA /* AppDelegate.swift in Sources */,
 				B08693742636F20B00961BDA /* SceneDelegate.swift in Sources */,
 				94761EE3263A5E7B003523F4 /* TimeScreenViewController.swift in Sources */,
+				94761EF2263AB7AE003523F4 /* ExtendItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

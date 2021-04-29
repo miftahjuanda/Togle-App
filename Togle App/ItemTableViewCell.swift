@@ -10,14 +10,13 @@ import CoreData
 
 class ItemTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var colorNote: UIImageView!
+    @IBOutlet weak var colorNote: UIView!
     @IBOutlet weak var task_label: UILabel!
     @IBOutlet weak var date_label: UILabel!
     @IBOutlet weak var time_label: UILabel!
-    @IBOutlet weak var result_label: UILabel!
     
     func updateUI(fogle : NSManagedObject) {
-//        image_logo.image = UIImage(named: dataItems.image)
+
         task_label.text = fogle.value(forKey: "title") as? String
         date_label.text = fogle.value(forKey: "date") as? String
         
@@ -27,15 +26,6 @@ class ItemTableViewCell: UITableViewCell {
         time_label.text = "\(convertToMinutesAndSecond(totalSecond: Int(currentTime))) / \(convertToMinutesAndSecond(totalSecond: Int(targetTime)))"
         
         let status : String = fogle.value(forKey: "status") as? String ?? ""
-        let result : String = fogle.value(forKey: "result") as? String ?? ""
-        if  status != FogleStatus.todo.rawValue {
-            result_label.text = "Result : \(getResult(result: result))"
-            result_label.isHidden = false
-        } else{
-            result_label.isHidden = true
-        }
-        
-        
         
         setColorNote(status: status)
         
@@ -47,10 +37,13 @@ class ItemTableViewCell: UITableViewCell {
         
         if status == FogleStatus.todo.rawValue {
             self.colorNote.backgroundColor = UIColor.systemBlue
+            self.colorNote.tintColor = UIColor.systemBlue
         } else if status == FogleStatus.uncompleted.rawValue {
             self.colorNote.backgroundColor = UIColor.systemPink
+            self.colorNote.tintColor = UIColor.systemPink
         } else if status == FogleStatus.completed.rawValue {
             self.colorNote.backgroundColor = UIColor.systemGreen
+            self.colorNote.tintColor = UIColor.systemGreen
         }
     }
     
