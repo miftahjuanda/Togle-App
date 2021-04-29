@@ -19,6 +19,9 @@
 		B086937C2636F20B00961BDA /* Togle_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B086937A2636F20B00961BDA /* Togle_App.xcdatamodeld */; };
 		B086937E2636F20C00961BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B086937D2636F20C00961BDA /* Assets.xcassets */; };
 		B08693812636F20C00961BDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B086937F2636F20C00961BDA /* LaunchScreen.storyboard */; };
+		B0E1F6F2263955A000FAB8AC /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1F6F0263955A000FAB8AC /* ItemTableViewCell.swift */; };
+		B0E1F6F3263955A000FAB8AC /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E1F6F1263955A000FAB8AC /* ItemTableViewCell.xib */; };
+		B0E1F7002639B9AE00FAB8AC /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1F6FF2639B9AE00FAB8AC /* BadgesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		B086937D2636F20C00961BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B08693802636F20C00961BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B08693822636F20C00961BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0E1F6F0263955A000FAB8AC /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		B0E1F6F1263955A000FAB8AC /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		B0E1F6FF2639B9AE00FAB8AC /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				9439D4652639BD4F00339E7E /* Protocol */,
+				B0E1F6EF2639556C00FAB8AC /* Items Cell */,
 				9450EECB2638FAFA0028A178 /* Model */,
 				9450EEC62638FA130028A178 /* Enum */,
 				94849F2E2638561000F2F1E5 /* Persistance */,
@@ -137,8 +144,34 @@
 			children = (
 				B08693752636F20B00961BDA /* ViewController.swift */,
 				9439D4622639BD1B00339E7E /* AddTaskViewController.swift */,
+				B0E1F6FF2639B9AE00FAB8AC /* BadgesViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		B0E1F6EF2639556C00FAB8AC /* Items Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B0E1F6FC2639B45C00FAB8AC /* bad */,
+				B0E1F6FB2639B45100FAB8AC /* segmentation */,
+				B0E1F6F0263955A000FAB8AC /* ItemTableViewCell.swift */,
+				B0E1F6F1263955A000FAB8AC /* ItemTableViewCell.xib */,
+			);
+			name = "Items Cell";
+			sourceTree = "<group>";
+		};
+		B0E1F6FB2639B45100FAB8AC /* segmentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = segmentation;
+			sourceTree = "<group>";
+		};
+		B0E1F6FC2639B45C00FAB8AC /* bad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = bad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +233,7 @@
 			files = (
 				B08693812636F20C00961BDA /* LaunchScreen.storyboard in Resources */,
 				B086937E2636F20C00961BDA /* Assets.xcassets in Resources */,
+				B0E1F6F3263955A000FAB8AC /* ItemTableViewCell.xib in Resources */,
 				B08693792636F20B00961BDA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E1F6F2263955A000FAB8AC /* ItemTableViewCell.swift in Sources */,
+				B0E1F7002639B9AE00FAB8AC /* BadgesViewController.swift in Sources */,
 				B08693762636F20B00961BDA /* ViewController.swift in Sources */,
 				9439D4632639BD1B00339E7E /* AddTaskViewController.swift in Sources */,
 				94849F302638562500F2F1E5 /* FogleDB.swift in Sources */,

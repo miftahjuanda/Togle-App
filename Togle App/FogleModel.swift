@@ -8,7 +8,7 @@
 import Foundation
 
 
-class  FogleModel{
+class FogleModel {
     var id : String
     var title : String
     var status : String
