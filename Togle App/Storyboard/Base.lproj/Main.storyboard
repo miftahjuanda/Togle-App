@@ -230,6 +230,7 @@
                         <outlet property="notesTextView" destination="bsf-YF-dzP" id="BhI-xQ-5Cn"/>
                         <outlet property="taskNameTextField" destination="n00-IW-g4m" id="N5X-nD-IoO"/>
                         <outlet property="taskTimeTextField" destination="gC2-eJ-Uqc" id="EjQ-AJ-uoF"/>
+                        <outlet property="uinav" destination="AKi-pf-UWl" id="Qd1-dK-ssa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1F2-RC-CAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -561,7 +562,7 @@
         <image name="eagle_breeder_1_disable" width="796" height="795"/>
         <image name="eagle_breeder_2_disable" width="796" height="795"/>
         <image name="eagle_breeder_3_disable" width="796" height="795"/>
-        <image name="egg" width="1820" height="2376"/>
+        <image name="egg" width="1743" height="2468"/>
         <image name="gold_miner_1_disable" width="734" height="734"/>
         <image name="gold_miner_2_disbale" width="735" height="734"/>
         <image name="gold_miner_3_disable" width="734" height="734"/>

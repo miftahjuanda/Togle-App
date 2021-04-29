@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var itemTableViews: UITableView!
     @IBOutlet weak var fogleSegmentationControl: UISegmentedControl!
     @IBOutlet weak var pointLabel: UIButton!
-    var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     var fogleData : [NSManagedObject] = []
     let statusSegmnetation : [FogleStatus] = [.todo,.uncompleted,.completed]
@@ -49,31 +47,13 @@ class ViewController: UIViewController {
         itemTableViews.register(nib, forCellReuseIdentifier: "itemDataTable")
         itemTableViews.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
-        func setExtendTable(){
+    
+    func setExtendTable(){
         let nib = UINib(nibName: "ExtendItemTableViewCell", bundle: nil)
         itemTableViews.register(nib, forCellReuseIdentifier: "extendItemDataTable")
         itemTableViews.separatorStyle = UITableViewCell.SeparatorStyle.none
-
-    func deleteData(nama: String){
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Focus")
-        fetchRequest.predicate = NSPredicate(format: "name = %@", nama)
-
-        do {
-            let object = try managedObjectContext.fetch(fetchRequest)
-            let objectToDelete = object[0] as! NSManagedObject
-            managedObjectContext.delete(objectToDelete)
-
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Error saving after delete an abject: \(error)")
-            }
-
-        }catch{
-            print("Error saving after deletion: \(error)")
-        }
     }
-
+    
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
@@ -129,7 +109,7 @@ extension ViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemData = fogleData[indexPath.row]
-        
+//        
         let cell = tableView.dequeueReusableCell(withIdentifier: "extendItemDataTable", for: indexPath) as! ExtendItemTableViewCell
         cell.backgroundColor = UIColor.white
         cell.updateUI(fogle: itemData)
@@ -150,7 +130,7 @@ extension ViewController: UITableViewDataSource{
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height/4
+        return tableView.frame.height/6
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -209,7 +189,7 @@ extension ViewController: UITableViewDelegate {
         let vc = storyboard?.instantiateViewController(identifier: "TimeScreenViewController") as! TimeScreenViewController
         vc.mainScreenProtocol = self
         vc.fogleModel = createFogleModel(data: data)
-
+        vc.badgesModel = createInstanceBadges(data: badgesData!)
         present(vc, animated: true, completion: nil)
         
     }
@@ -226,6 +206,10 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController : MainScreenProtocol {
+    func changeStatusTask(fogleModel: FogleModel) {
+        db?.editFogleData(fogleModel: fogleModel)
+        reloadData()
+    }
     
     func reloadData() {
         
