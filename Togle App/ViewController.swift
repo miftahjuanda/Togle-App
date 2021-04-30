@@ -140,7 +140,8 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    
+        let data = listData[indexPath.row]
+        
         let deleteButton = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath)  in
             print("test hapus")
             alertButton(title: "Delete task", message: "Are you sure want to delete this task ?", completion: {
@@ -181,6 +182,10 @@ extension ViewController: UITableViewDelegate {
     
         editButton.backgroundColor = UIColor.systemGreen
         deleteButton.backgroundColor = UIColor.systemRed
+        
+        if data.status != FogleStatus.todo.rawValue {
+            return [deleteButton]
+        }
         return [deleteButton, editButton]
     }
     

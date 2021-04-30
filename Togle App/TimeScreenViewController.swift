@@ -35,7 +35,7 @@ class TimeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fogleModel?.targetTime = 10
+        fogleModel?.targetTime = 10
         titleTaskLabel.text = fogleModel?.title ?? ""
         totalSecond = Int(fogleModel?.targetTime ?? 0)
         
