@@ -62,6 +62,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
+        labelEmptyView.text = labelEmpty[fogleSegmentationControl.selectedSegmentIndex]
         reloadData()
     }
     

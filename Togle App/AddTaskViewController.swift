@@ -183,7 +183,7 @@ class AddTaskViewController: UIViewController {
         content.sound = .default
         content.body = fogle.note
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: datePicker.date.addingTimeInterval(10)), repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: datePicker.date), repeats: false)
         
         let request = UNNotificationRequest(identifier: "\(fogle.title)", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: {
